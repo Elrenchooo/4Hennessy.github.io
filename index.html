@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Hennessy</title>
+</head>
+<body>
+    <div class="container">
+        <div class="concerts">
+            <div class="card" onclick="playMusic(this)" style="background-image: url(img/la-nueva.jpg);">
+                <div class="content">
+                    <audio id="music1"
+                        src="audio/La Nueva Religión Tour PT.II.mp3" type="audio/mpeg">
+                    </audio>
+                    <p>25 de Noviembre 2018 <br> San José - Costa Rica</p>
+                </div>
+            </div>
+            <div class="card" onclick="playMusic(this)" style="background-image: url(img/x100pre.jpg);">
+                <div class="content">
+                    <audio id="music2"
+                        src="audio/X100PRE Tour.mp3" type="audio/mpeg">
+                    </audio>
+                    <p>8 de Marzo 2019, San Juan - PR</p>
+                </div>
+            </div>
+            <div class="card" onclick="playMusic(this)" style="background-image: url(img/El-ultimo.jpg);">
+                <div class="content">
+                    <audio id="music3"
+                        src="audio/El Último Tour del Mundo.mp3" type="audio/mpeg">
+                    </audio>
+                    <p>1 de Abril de 2022, Miami - US</p>
+                </div>
+            </div>
+            <div class="card" onclick="playMusic(this)" style="background-image: url(img/hottest.jpg);">
+                <div class="content-2">
+                    <audio id="music4"
+                        src="audio/World's Hottest Tour.mp3" type="audio/mpeg">
+                    </audio>
+                    <p class="card4">11 de Noviembre de 2022, Lima - Perú</p>
+                </div>
+            </div>
+            <div class="card" onclick="playMusic(this)" style="background-image: url(img/most.png);">
+                <div class="content-2">
+                    <audio id="music5" 
+                        src="audio/Most Wanted Tour.mp3" type="audio/mpeg">
+                    </audio>
+                    <p class="card5">5 de Marzo de 2024, Los Ángeles - US</p>
+                </div>
+            </div>
+            <div class="card" onclick="playMusic(this)" style="background-image: url(img/no-me.jpg);">
+                <div class="content-2">
+                    <audio id="music6"
+                        src="audio/No me quiero ir de aquí.mp3" type="audio/mpeg">
+                    </audio>
+                    <p class="card6">El Choli - PR</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    let clickCount = 0;
+        let clickTimer;
+
+        function playMusic(card) {
+            let audio = card.querySelector("audio");
+            clickCount++;
+
+            if (clickCount === 1) {
+                clickTimer = setTimeout(() => {
+                    if (audio.paused) {
+                        document.querySelectorAll("audio").forEach(el => {
+                            if (el !== audio) {
+                                el.pause();
+                            }
+                        });
+                        audio.play();
+                    } else {
+                        audio.pause();
+                    }
+                    clickCount = 0;
+                }, 300);
+            } else if (clickCount === 2) {
+                clearTimeout(clickTimer);
+                audio.pause();
+                audio.currentTime = 0;
+                clickCount = 0;
+            }
+        }
+</script>
+</body>
+</html>

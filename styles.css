@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Lexend+Giga:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+}
+
+@keyframes gradientAnimation{
+    0%{
+        background-position: 0% 50%
+    }
+    100%{
+        background-position: 50% 100%;
+    }
+}
+
+body{
+    background: linear-gradient(to bottom, #38334d, #272436, #1c1a27, #100f16);
+    background-size: 400% 400%;
+    animation: gradientAnimation 20s infinite alternate;
+    will-change: background-position;
+}
+
+.container{
+    height: 100vh;
+    height: 100dvh;
+    width: 90%;
+    max-width: 1260px;
+    margin: auto;
+}
+
+.concerts{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 10px 0;
+    gap: 17px;
+}
+
+.card{
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    height: 284px;
+    width: 290px;
+    border-radius: 17px;
+    cursor: pointer;
+    position: relative;
+    
+    font-weight: bold;
+    color: #fff;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-size: .8rem;
+    transition: scale .2 ease;
+}
+
+.card:hover{
+    scale: 1.03;
+}
+
+.card:active{
+    scale: 1;     
+}
+
+.content{
+    margin: 5px 0;
+    display: flex;
+    align-items: end;
+}
+
+.content-2{
+    margin: 5px 0;
+    display: flex;
+    align-items: end;
+}
+
+.content-2 .card4, .card6{
+    padding: 4px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.493);
+    color: #1c1a27;
+}
+
+.content-2 .card5{
+    background-color: rgba(255, 255, 255, 0.493);
+    color: #1c1838;
+}
+
+@media (max-width: 991px) {
+    .concerts{
+        display: flex;
+        flex-wrap: wrap;
+        height: 100dvh;
+        margin-top: 6px;
+    }
+    
+    .card {
+        background-position: center center;
+        width: calc(50% - 10px);
+        height: 204px;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+    .content {
+        font-size: 15px;
+        padding: 5px;
+    }
+    .content-2{
+        font-size: 15px;
+        padding: 1px;
+    }
+
+    .content-2 .card4, .card6{
+        margin: 0 4px;
+    }
+    
+    .content-2 .card5{
+        margin: 0 4px;
+    }
+}
